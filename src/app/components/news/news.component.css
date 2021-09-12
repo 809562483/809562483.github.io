@@ -1,0 +1,84 @@
+.showName {
+  background-color: aquamarine;
+}
+.showVersion {
+  background-color: blueviolet;
+}
+.controlChildren {
+  background-color: burlywood;
+}
+.controlChildrenByViewChild {
+  background-color: chartreuse;
+}
+.panel {
+  width: 200px;
+  height: 200px;
+  background-color: #000;
+  font-size: 150px;
+  line-height: 200px;
+  text-align: center;
+  color: red;
+}
+.subject {
+  background-color: darkgoldenrod;
+}
+.twoWayBinding {
+  background-color: darkcyan;
+}
+.single-slot-project {
+  background-color: hotpink;
+}
+.multi-slot-project {
+  background-color: mediumblue;
+}
+.my-template {
+  background-color: chartreuse;
+}
+.template-test {
+  background-color: crimson;
+}
+.binding {
+  background-color: #0d5263;
+}
+.switch {
+  background-color: cadetblue;
+  height: 100px;
+}
+.chooseColor {
+  background-color: #eee;
+}
+.unBindable {
+  background-color: #666;
+}
+.createEmbeded {
+  background-color: aqua;
+}
+.unless {
+  background-color: blueviolet;
+  height: 100px;
+}
+.componentFactorResolver {
+  background-color: chartreuse;
+}
+.resolveComponentFactory {
+  background-color: brown;
+}
+.createCustomElement {
+  background-color: darksalmon;
+}
+.mypipe {
+  background-color: blueviolet;
+}
+.evilContent {
+  background-color: bisque;
+}
+.tempVariables {
+  background-color: blue;
+}
+.router {
+  border: #000 solid 10px;
+  background-color: chartreuse;
+}
+.active {
+  border: black solid 3px;
+}

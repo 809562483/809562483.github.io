@@ -1,0 +1,273 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-07-02 09:48:23
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-04 11:10:04
+-->
+<button (click)="changeContent()">点击切换下方渲染内容</button>
+<div *ngIf="isShow; else next">哈哈哈哈哈哈</div>
+<ng-template #next> 呃呃呃呃呃呃呃呃呃呃呃呃 </ng-template>
+
+<ul>
+  <!-- 这些绑定在标签上的指令或者绑定标记会根据！！程序数据！！和程序逻辑在视图显示出来之前被angular解析并应用到dom上 -->
+  <li *ngFor="let user of users; index as ii; first as isFirst" appSpy>
+    姓名：{{ user.name }} <br />
+    年龄：{{ user.age }} <br />
+    是否是第一个：{{ isFirst ? "是" : "否" }}
+  </li>
+</ul>
+<button (click)="write()">write</button>
+<!-- <test-component></test-component> -->
+<button (click)="addItem()">添加物品</button>
+
+<hr />
+<p>来自子组件的值：{{ childMsg | toUpper }}</p>
+<hr />
+<button (click)="change()">点击改变子组件内容</button>
+<children-component
+  [msg]="message"
+  (trigger)="childMsg = $event"
+></children-component>
+<!-- 双向绑定之input -->
+<div>
+  <p>请输入内容：<input type="text" [(ngModel)]="TwoWayDataBind" #inp /></p>
+  <button (click)="show()">展示内容并清空</button>
+</div>
+<p>来自Test子组件的值：{{ output }}</p>
+<app-test-component
+  [nickname]="'nqwl'"
+  [in]="test"
+  *ngIf="ifTest"
+  (output)="output = $event"
+>
+  <h3>呵呵</h3></app-test-component
+>
+<button (click)="ifTest = !ifTest">toggle TestConponent</button><br />
+<button (click)="test = 'TEST'">切换</button>
+<hr />
+<div class="showName">
+  <app-show-name *ngFor="let name of names" [name]="name"></app-show-name>
+</div>
+<div class="showVersion">
+  <app-show-version [minor]="minor" [major]="major"></app-show-version>
+  <button (click)="minor = minor + 1">Add Minor</button>&nbsp;<button
+    (click)="major = major + 1; minor = 0"
+  >
+    Add Major
+  </button>
+</div>
+<div class="controlChildren">
+  <button (click)="interval.stop()">stop</button>&nbsp;<button
+    (click)="interval.start()"
+  >
+    start
+  </button>
+  <app-father-control-children-method
+    #interval
+  ></app-father-control-children-method>
+</div>
+<div class="controlChildrenByViewChild">
+  <button (click)="interval2.stop()">stop</button>&nbsp;<button
+    (click)="interval2.start()"
+  >
+    start
+  </button>
+  <div class="panel">{{ seconds() }}</div>
+  <app-control-children-by-viewchild
+    #interval2
+  ></app-control-children-by-viewchild>
+</div>
+<div class="subject">
+  <h3>来自子组件传递的值：{{ fromChild }}</h3>
+  向子组件传递的值：<input type="text" [(ngModel)]="input" /><br />
+  <button (click)="clickHandler()">点击传递</button>
+  <app-parent-communite-children></app-parent-communite-children>
+</div>
+<div class="twoWayBinding">
+  <p [style.fontSize.px]="parentData">我是父组件的字号</p>
+  <button (click)="parentData = parentData + 3">+</button>&nbsp;<button
+    (click)="parentData = parentData - 3"
+  >
+    -</button
+  ><br />
+  <app-two-way-binding [(childrenData)]="parentData"></app-two-way-binding>
+</div>
+<div class="single-slot-project">
+  <h3>单插槽投影</h3>
+  <app-single-slot-project> 哈哈哈哈哈哈哈哈 </app-single-slot-project>
+</div>
+
+<hr />
+<div
+  [class.multi-slot-project]="1"
+  [style.border-width.px]="8"
+  [style.border-color]="'red'"
+  [style.border-style]="'solid'"
+>
+  <h3>多插槽投影-通过具名插槽实现</h3>
+  <app-multi-slot-project #c1>
+    <p>不具名内容一</p>
+    <div helei>
+      <p>具名内容二</p>
+    </div>
+    <app-single-slot-project #c2>在multi内的投影内容</app-single-slot-project>
+  </app-multi-slot-project>
+</div>
+<button (click)="c1.sayHello()">multi-project-byHTML</button
+><button (click)="c2.sayHello()">single-project-byHTML</button>
+<br />
+<button (click)="showC1()">multi-project-byComponent</button>
+<button (click)="showC2()">single-project-byComponent</button>
+<hr />
+<div
+  [class]="6 > 5 ? 'my-template' : ''"
+  style="border: 20px solid rgb(24, 27, 223)"
+>
+  <ng-template [ngIf]="temp"><p>我是template内容</p></ng-template>
+  <app-my-template> </app-my-template>
+</div>
+<div
+  [class]="{ 'template-test': flag }"
+  [style]="'border: 20px solid #000;'"
+  [style.font-size]="isBig ? '40px' : '20px'"
+>
+  <app-template-test><h4>传入的值</h4></app-template-test>
+  <div>
+    <button (click)="changeClass()">toggle</button>
+  </div>
+</div>
+<div class="binding">
+  <app-binding></app-binding>
+</div>
+<div class="switch">
+  ngSwitch指令
+  <app-switch></app-switch>
+</div>
+<div class="chooseColor">
+  <h2>My First 自定义 directive</h2>
+  <h4>请选择一种颜色</h4>
+  <label for="color"
+    ><input
+      type="radio"
+      name="color"
+      value="green"
+      (click)="color = 'green'"
+    />Green</label
+  >
+  <label for="color"
+    ><input
+      type="radio"
+      name="color"
+      value="yellow"
+      (click)="color = 'yellow'"
+    />Yellow</label
+  >
+  <label for="color"
+    ><input
+      type="radio"
+      name="color"
+      value="cyan"
+      (click)="color = 'cyan'"
+    />Cyan</label
+  >
+  <p [appHighlight]="color" defaultColor="violet">hei bro!</p>
+</div>
+<div class="unBindable">
+  <h3>此属性指令用于禁止解析插值表达式</h3>
+  <p
+    ngNonBindable
+    [appHighlight]="color"
+    defaultColor="violet"
+    (click)="showC2()"
+  >
+    hei bro!,{{ "are you ok ?" }}
+  </p>
+</div>
+<div class="createEmbeded">
+  <app-create-embeded></app-create-embeded>
+</div>
+<div class="unless">
+  <app-unless *appUnless="condition"></app-unless>
+  <p *appUnless="!condition">我是普通组件</p>
+  <button (click)="condition = !condition">切换显示</button>
+</div>
+<div class="componentFactorResolver">
+  <app-component-factory-resolver></app-component-factory-resolver>
+</div>
+<div class="resolveComponentFactory">
+  <ng-template #tpl1></ng-template>
+  <button (click)="render1()">渲染动态组件</button>
+</div>
+<div class="createCustomElement">
+  <ng-template tpl2></ng-template>
+  <button (click)="createCustomElement()">点击创建自定义元素by动态组件</button>
+  <button (click)="createCustomElement1()">
+    点击创建自定义元素by自定义元素
+  </button>
+</div>
+<div class="mypipe">
+  <p *ngFor="let p of person | mypipe">{{ p.name }}</p>
+  <button (click)="changeMath()">change</button>
+  <input type="text" id="{{ 1 + 2 }}" />
+  <tr>
+    <!-- angular对html原生标签的属性绑定或插值只支持此htmlElement对象中存在的属性 -->
+    <!-- 可以写成属性绑定 [XX] = "exp" 也可以写成插值 XX = "{{exp}}" -->
+    <td colspan="2" [colSpan]="1 + 2">Three-Four</td>
+  </tr>
+</div>
+<div class="evilContent">
+  <h1>插值表达式的结果只能是字符串！！！！ 属性绑定可以是任意类型</h1>
+  <!-- 属性绑定与插值对 <script>标签的处理 -->
+  <p>
+    {{ evilTitle }}
+  </p>
+  <test-component value="{{ v }}"></test-component>
+  <test-component [value]="v"></test-component>
+  <!-- angular对自定义attribute的绑定或插值需要加前缀attr.  -->
+  <h2>angular对自定义attribute的绑定或插值需要加前缀attr.</h2>
+  <p
+    [innerHTML]="evilTitle"
+    [id]="1"
+    attr.attribute-you-are-targetinghhh="{{ 1 }}"
+    [attr.attribute-you-are-targetinghhh]="2"
+  >
+    测试
+  </p>
+  <h3>使用依赖注入获取元素的attribute值</h3>
+  <input type="text" appGetAttr />
+</div>
+<div class="tempVariables">
+  <input type="text" #inp4 />
+  <ng-template #inp5>123</ng-template>
+  <test-component #inp6 appClickable>444444</test-component>
+  <button (click)="tempVariables(inp6)" appGetAttr>showType</button>
+  <form #fm="ngForm">
+    姓名:<input
+      type="text"
+      id="nameee"
+      name="namee"
+      ngModel
+      #name="ngModel"
+    /><br />
+    年龄:<input type="text" id="age" name="age" /><br />
+  </form>
+  <button (click)="tempVariables(fm)">showForm</button>
+</div>
+<div class="router">
+  <button
+    [routerLink]="['outer1', 1, { name: 'helei', age: 18 }]"
+    [queryParams]="{ gender: 'male', score: 99 }"
+  >
+    outer1
+  </button>
+  <button (click)="jumpToOuter2()">outer2</button>
+  <button [routerLink]="['outer3']">outer3</button>
+  <button [routerLink]="'c3333'">C3模块</button>
+  <button [routerLink]="[{ outlets: { r111: 'd4444' } }]">D4模块</button>
+  <button *ngIf="1">login</button>
+  <!-- <button [routerLink]="'d4444'">C3模块</button> -->
+  <router-outlet></router-outlet>
+  <hr />
+</div>

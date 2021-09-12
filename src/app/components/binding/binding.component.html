@@ -1,0 +1,29 @@
+<div>
+  <h3>Current Name:{{ name }}</h3>
+  <p>
+    without [(ngModel)]:
+    <input type="text" [value]="name" (input)="name = withOutNgModel($event)" />
+  </p>
+  <p>
+    [(ngModel)]:
+    <input type="text" [(ngModel)]="name" />
+  </p>
+  <p>
+    bindon-ngModel:
+    <input type="text" bindon-ngModel="name" />
+  </p>
+  <p>
+    固定写法 xxx---xxxChange 可以直接获取 ngModelChange:
+    <input type="text" [ngModel]="name" (ngModelChange)="name = $event" />
+  </p>
+  <div [class]="'child'">
+    ###############################双向绑定###################################
+    <h3>father component</h3>
+    <p>fatherValue:{{ fatherValue }}</p>
+    <button (click)="changeFatherValue()">changeFatherValue</button>
+    <app-child
+      [value]="fatherValue"
+      (valueChange)="fatherValue = $event"
+    ></app-child>
+  </div>
+</div>

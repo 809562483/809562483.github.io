@@ -1,0 +1,17 @@
+<h2>Heroes</h2>
+<h2>动画是在一个变更周期内执行</h2>
+<input type="text" #inp placeholder="检索英雄" (input)="search(inp.value)" />
+<ul
+  class="heroes"
+  [@totalChange]="total"
+  (@totalChange.start)="showAnimationEvent($event)"
+  (@totalChange.done)="showAnimationEvent($event)"
+>
+  <li
+    *ngFor="let hero of heross$"
+    [class.selected]="hero.id === selectedId"
+    (click)="onSelect(hero)"
+  >
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+  </li>
+</ul>

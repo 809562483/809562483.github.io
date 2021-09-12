@@ -1,0 +1,20 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-07-14 09:48:25
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-07-14 15:14:32
+-->
+<h1>我是生命周期组件</h1>
+<button (click)="output.emit('hello world')">向父组件传值</button>
+以下为父组件传的标签体
+<hr />
+<ng-content></ng-content>
+<h4>{{nickName}}</h4>
+<hr />
+<br />
+<hr>
+<div>
+    Label标签:<label>我是label标签</label>。
+</div>

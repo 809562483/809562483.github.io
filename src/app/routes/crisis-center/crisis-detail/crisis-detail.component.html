@@ -1,0 +1,24 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-08-05 17:06:42
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-05 17:07:07
+-->
+<div *ngIf="crisis$ | async as crisis">
+  <h2>{{ crisis.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ crisis.id }}</div>
+  <div>
+    <label for="crisis-name">crisis name: </label>
+    <input
+      id="crisis-name"
+      [value]="crisis.name"
+      (input)="changeValue(inp.value)"
+      #inp
+      placeholder="name"
+    />
+  </div>
+  <button (click)="save()">save</button>
+  <button (click)="cancel()">cancel</button>
+</div>

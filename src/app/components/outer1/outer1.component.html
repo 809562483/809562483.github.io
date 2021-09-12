@@ -1,0 +1,16 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-08-02 16:38:08
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-03 11:02:01
+-->
+<h3>我是父组件1</h3>
+<div>
+  <p>我是内容1:</p>
+  <button [routerLink]="['./inner1']">inner1</button
+  ><button (click) = "jumpToInner2()">inner2</button>
+  <button [routerLink]="['../../outer2']">jumpToOuter2</button>
+  <router-outlet></router-outlet>
+</div>

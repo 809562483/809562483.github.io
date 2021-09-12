@@ -1,0 +1,19 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-08-05 17:06:42
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-05 17:07:07
+-->
+<h2>Hero</h2>
+
+<div *ngIf="hero$ | async as hero">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+  </div>
+  <button (click)="back()">Back</button>
+</div>

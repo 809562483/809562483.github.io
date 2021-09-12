@@ -1,0 +1,6 @@
+<div [ngSwitch]="score">
+  <h3 *ngSwitchCase="'A'" [style]="'color:green'">考得不错啊兄弟</h3>
+  <h3 *ngSwitchCase="'B'" [style]="'color:yellow'">考得一般啊兄弟</h3>
+  <h3 *ngSwitchCase="'C'" [style]="'color:red'">考得很差啊兄弟</h3>
+  <h3 *ngSwitchDefault [style]="'color:black'">呃呃呃你考得怎么样</h3>
+</div>

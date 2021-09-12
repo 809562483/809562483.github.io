@@ -1,0 +1,12 @@
+.singleFormControl {
+  border: 5px solid violet;
+}
+.formGroup {
+  border: 5px solid red;
+}
+.formBuilder {
+  border: 5px solid blue;
+}
+.formArray {
+  border: 5px solid pink;
+}

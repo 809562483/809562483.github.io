@@ -1,0 +1,29 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-07-21 09:22:51
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-07-21 16:39:00
+-->
+
+    <!-- <h3>333333</h3>
+<ng-template #tpl let-name1 = "name" let-foo let-boo>
+    ################{{name1}}-----{{boo}}-------{{foo}}
+</ng-template>
+<h4>4444444444444</h4>
+
+<hr> -->
+<div>
+    <h3>我是组件</h3>
+    <ng-content></ng-content>
+    <div *ngIf = "1">
+        <ng-container [ngTemplateOutlet] = "tpl">
+
+        </ng-container>
+    </div>
+</div>
+<ng-template #tpl let-name = "_name" let-age>
+    #####{{name}}-----{{age}}###########
+</ng-template>
+

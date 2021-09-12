@@ -1,0 +1,9 @@
+<h3>渲染ng-template标签</h3>
+<ng-template #tpl>
+  <p>我是template内的内容</p>
+</ng-template>
+<div>
+  <ng-container #con></ng-container>
+</div>
+<hr />
+<button (click)="render()">点击渲染template模板</button>

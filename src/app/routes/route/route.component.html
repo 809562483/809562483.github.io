@@ -1,0 +1,22 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-08-04 11:05:15
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-05 17:00:51
+-->
+<h3>angular路由详解</h3>
+<nav>
+  <button [routerLink]="'crisis-center'">Crisis Center</button>
+  <button [routerLink]="'heroes'">Heroes</button>
+  <button [routerLink]="'admin'">Admin</button>
+  <button [routerLink]="'login'">Login</button>
+  <button [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</button>
+  <button [routerLink]="'weak'">weak</button>
+</nav>
+
+<div [@animation2]="getPage(out)">
+  <router-outlet #out="outlet"></router-outlet>
+</div>
+<router-outlet name="popup"></router-outlet>

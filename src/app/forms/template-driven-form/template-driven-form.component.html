@@ -1,0 +1,61 @@
+<h2>模板驱动型表单</h2>
+<div class="template-drive-form">
+  <form (ngSubmit)="submit()" #f="ngForm" appUserTest>
+    <div>
+      name：<input
+        type="text"
+        [(ngModel)]="name"
+        #namee="ngModel"
+        required
+        name="name"
+        appNametest="helei"
+      />
+    </div>
+    <div>
+      age：<input
+        type="text"
+        [(ngModel)]="age"
+        #agee="ngModel"
+        required
+        name="age"
+      />
+    </div>
+    <!-- <div *ngIf="namee.invalid">name is invalid</div>
+    <div *ngIf="namee.dirty">name is dirty</div>
+    <div *ngIf="namee.touched">name is touched</div>
+    <div *ngIf="agee.invalid">age is invalid</div> -->
+    <button type="submit" [disabled]="!f.valid">提交</button>
+  </form>
+</div>
+<div class="template-drive-form">
+  <h3>模板驱动表单的异步验证</h3>
+  <form (ngSubmit)="submit1()" #ff="ngForm" appUserTestAsync>
+    <div>
+      name1：<input
+        type="text"
+        [(ngModel)]="name1"
+        #nameee="ngModel"
+        required
+        name="name"
+        [ngModelOptions]="{ updateOn: 'blur' }"
+      />
+    </div>
+    <div>
+      age1：<input
+        type="text"
+        [(ngModel)]="age1"
+        #ageee="ngModel"
+        required
+        name="age"
+        [ngModelOptions]="{ updateOn: 'blur' }"
+      />
+    </div>
+    <!-- <div *ngIf="nameee.invalid">name1 is invalid</div>
+    <div *ngIf="nameee.dirty">name1 is dirty</div>
+    <div *ngIf="nameee.touched">name1 is touched</div>
+    <div *ngIf="ageee.invalid">age1 is invalid</div> -->
+    <div>pending:{{ ff.pending }}</div>
+    <div>valid:{{ ff.valid }}</div>
+    <button type="submit" [disabled]="!ff.valid">提交</button>
+  </form>
+</div>

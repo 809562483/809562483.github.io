@@ -1,0 +1,19 @@
+<!--
+ * @Description: TODO
+ * @Version: 1.0
+ * @Autor: Observer
+ * @Date: 2021-06-30 10:36:23
+ * @LastEditors: Observer
+ * @LastEditTime: 2021-08-04 11:03:02
+-->
+<h1>我的Angular项目</h1>
+<button [routerLink]="'news'">angular基础</button>
+<button [routerLink]="'route'">angular路由</button>
+<button [routerLink]="'form'">表单</button>
+<button [routerLink]="'http'">http通讯</button>
+<hr />
+<!-- [@animation1]="getPage(out)" -->
+
+<div>
+  <router-outlet #out="outlet"></router-outlet>
+</div>

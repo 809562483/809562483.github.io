@@ -1,0 +1,94 @@
+<h2>响应式表单</h2>
+<div class="singleFormControl">
+  <h3>单FormControl控件</h3>
+  name:<input type="text" [formControl]="nameControl" #inp />
+  <br />
+  <h3>
+    nameControl的值(by Observable)：{{ nameControl.valueChanges | async }}
+  </h3>
+  <h3>nameControl的值(by snapshot)：{{ nameControl.value }}</h3>
+  <hr />
+  <h4>
+    模板的formControl的数据流只接受用户正常交互输入，直接native修改value的方式无法触发响应
+  </h4>
+  <button (click)="inp.value = '456'">通过native方法修改Input的value</button>
+  <hr />
+  <h4>
+    响应式表单还有一些方法可以用编程的方式修改控件的值，它让你可以灵活的修改控件的值而不需要借助用户交互。
+  </h4>
+  <button (click)="click2()">编程式修改formControl实例触发响应</button>
+  <hr />
+</div>
+<div class="formGroup">
+  <h3>FormControl with FormGroup</h3>
+  <form [formGroup]="profileFormGroup" (ngSubmit)="submit()">
+    <div>name: <input type="text" formControlName="name" /></div>
+    <div>age: <input type="text" formControlName="age" /></div>
+    <div formGroupName="address">
+      <div>province: <input type="text" formControlName="province" /></div>
+      <div>street: <input type="text" formControlName="street" /></div>
+    </div>
+    <div *ngIf="profileFormGroup.invalid">not truly user</div>
+    <button type="submit" [disabled]="profileFormGroup.invalid">提交</button>
+  </form>
+  <h3>
+    name的值(by Observable)：{{
+      profileFormGroup.valueChanges | async
+    }}
+    age的值(by Observable)：{{ profileFormGroup.valueChanges | async }}
+  </h3>
+  <h3>name的值(by snapshot)：{{ profileFormGroup.value.name }}</h3>
+  <h3>age的值(by snapshot)：{{ profileFormGroup.value.age }}</h3>
+  <div>
+    <button (click)="click3()">
+      编程式修改formGroup实例触发响应，setValue全量覆盖
+    </button>
+    <button (click)="click4()">
+      编程式修改formGroup实例触发响应，patchValue增量覆盖
+    </button>
+  </div>
+</div>
+<div class="formBuilder">
+  <h3>FormControl && FormGroup with FormBuilder</h3>
+  <form [formGroup]="profileFormGroupByBuilder" (ngSubmit)="submit()">
+    <div>name: <input type="text" formControlName="name" /></div>
+    <div>age: <input type="text" formControlName="age" /></div>
+    <div formGroupName="address">
+      <div>
+        province(带验证): <input type="text" formControlName="province" />
+      </div>
+      <div>street: <input type="text" formControlName="street" /></div>
+    </div>
+    <button type="submit" [disabled]="!profileFormGroupByBuilder.valid">
+      提交
+    </button>
+  </form>
+  <h3>
+    name的值(by Observable)：{{
+      profileFormGroupByBuilder.valueChanges | async
+    }}
+    age的值(by Observable)：{{ profileFormGroupByBuilder.valueChanges | async }}
+  </h3>
+  <h3>name的值(by snapshot)：{{ profileFormGroupByBuilder.value.name }}</h3>
+  <h3>age的值(by snapshot)：{{ profileFormGroupByBuilder.value.age }}</h3>
+  <div>
+    <button (click)="click3ByBuilder()">
+      编程式修改formGroupByBuilder实例触发响应，setValue全量覆盖
+    </button>
+    <button (click)="click4ByBuilder()">
+      编程式修改formGroupByBuilder实例触发响应，patchValue增量覆盖
+    </button>
+  </div>
+</div>
+
+<div class="formArray">
+  <h1>动态表单(formControl数组)</h1>
+  <form [formGroup]="testFormArray" (ngSubmit)="arraySubmit()">
+    <div formArrayName="alias">
+      <div *ngFor="let a of aliass.controls; let i = index">
+        输入域{{ i }}：<input type="text" [formControlName]="i" />
+      </div>
+    </div>
+    <button type="submit">提交</button>
+  </form>
+</div>
