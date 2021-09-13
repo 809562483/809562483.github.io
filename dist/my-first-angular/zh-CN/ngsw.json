@@ -1,0 +1,91 @@
+{
+  "configVersion": 1,
+  "timestamp": 1631546480728,
+  "index": "/zh-CN/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/zh-CN/400.770559fec20a499aa8d9.js",
+        "/zh-CN/480.19bde46c00134759dfd2.js",
+        "/zh-CN/785.72514c48a7ffb40977ca.js",
+        "/zh-CN/863.9a3e2bb8e96ed911d226.js",
+        "/zh-CN/999.3c7e48eefd3b6a80f254.js",
+        "/zh-CN/favicon.ico",
+        "/zh-CN/index.html",
+        "/zh-CN/main.51998cf9632bde9008e9.js",
+        "/zh-CN/manifest.webmanifest",
+        "/zh-CN/polyfills.447991f22bad8102d556.js",
+        "/zh-CN/runtime.061f19a8fb08f19076af.js",
+        "/zh-CN/styles.d7f6d0a23b89539340a7.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/zh-CN/assets/icons/icon-128x128.png",
+        "/zh-CN/assets/icons/icon-144x144.png",
+        "/zh-CN/assets/icons/icon-152x152.png",
+        "/zh-CN/assets/icons/icon-192x192.png",
+        "/zh-CN/assets/icons/icon-384x384.png",
+        "/zh-CN/assets/icons/icon-512x512.png",
+        "/zh-CN/assets/icons/icon-72x72.png",
+        "/zh-CN/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/zh-CN/400.770559fec20a499aa8d9.js": "c7bb20cb53140ce2f955251e19a415289404c970",
+    "/zh-CN/480.19bde46c00134759dfd2.js": "00de7c1073af1899b20f77ebc4ad987f0442ba23",
+    "/zh-CN/785.72514c48a7ffb40977ca.js": "f3fadd50702115e840d0b36f3b8dd414bd94e54e",
+    "/zh-CN/863.9a3e2bb8e96ed911d226.js": "fd9c397df42bed51c63db6d81639adfe69182ca1",
+    "/zh-CN/999.3c7e48eefd3b6a80f254.js": "0917b081f300beaf09a1dd5957452843261c2773",
+    "/zh-CN/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/zh-CN/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/zh-CN/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/zh-CN/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/zh-CN/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/zh-CN/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/zh-CN/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/zh-CN/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/zh-CN/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/zh-CN/index.html": "58bcae1914d6931298612b5d495d66465c577a96",
+    "/zh-CN/main.51998cf9632bde9008e9.js": "7d7dafab5aa289e8fd3c4400d858c57c91b941ba",
+    "/zh-CN/manifest.webmanifest": "476b31ad379607dc57a4de1ff9554553b91aa39b",
+    "/zh-CN/polyfills.447991f22bad8102d556.js": "7d5ef341754047bc1746de514acaeab186fd48f5",
+    "/zh-CN/runtime.061f19a8fb08f19076af.js": "7dce3dc4f647aeacf3a4cbd9972168806b96f92d",
+    "/zh-CN/styles.d7f6d0a23b89539340a7.css": "32743e9a4a60d4e935c241ab5e36d63176e17041"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

@@ -63,6 +63,9 @@ import { D4Component } from './d4/d4.component';
 import { FormStudyModule } from './forms/forms.module';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { interCeptors } from './http/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +108,7 @@ import { interCeptors } from './http/http';
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientJsonpModule,
@@ -113,6 +116,13 @@ import { interCeptors } from './http/http';
     RouteModule,
     FormStudyModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    RouterModule,
 
 
   ],
